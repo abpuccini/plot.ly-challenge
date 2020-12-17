@@ -1,0 +1,17 @@
+#container {
+    margin-bottom: 70px;
+}
+
+#header-bg {
+    background-image: url("../images/bg_header.gif"); 
+    background-size: cover; 
+    background-position: center;
+}
+
+#h1 {
+    color: antiquewhite;
+}
+
+#p-header {
+    color: white;
+}
