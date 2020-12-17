@@ -7,16 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bellybutton Biodiversity</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
   <link rel="shortcut icon" href="#" />
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="container" id="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+      <!-- Image Source: https://www.pinterest.com/pin/104708760064508027/-->
+      <div class="col-md-12 jumbotron text-center" id="header-bg">
+        <h1 id="h1">Belly Button Biodiversity Dashboard</h1>
+        <p id="p-header">Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
     <div class="row">
@@ -44,13 +46,35 @@
         <div id="bubble"></div>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>What is Belly Button?</h2>
+        <hr>
+        <p style="font-size: large;">Your belly button marks the spot where your umbilical (say: um-BIL-ih-kul) cord
+          was once attached. This cord
+          is a soft, bendable tube that carried nutrients — vitamins and minerals — from your mother to you, back when
+          you were in her belly (womb) (KidsHealth Medical Experts, Why Do I Have a Belly Button? (for Kids) - Nemours
+          KidsHealth).</p>
+        <p style="font-size: large;">Your navel is technically named the umbilicus and is commonly called the “belly
+          button.” All humans have
+          them. Other mammals have them as well, although theirs are usually smooth or flat—often just a thin line
+          hidden by fur (Kimberly Dumke, Belly Button Biodiversity 2013).</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Belly Button Biodiversity</h2>
+        <hr>
+        <p style="font-size: large;">In 2011, a team of scientists launched the Belly Button Biodiversity Project to
+          find out. These scientists were from the biology department of North Carolina State University (NC State)
+          and the Nature Research Center (NRC) at the North Carolina Museum of Natural Sciences.</p>
+      </div>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="static/js/app.js"></script>
-  <!-- <script src="./static/js/bonus.js"></script> -->
-  <script src="data/samples.json"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="data/samples.json"></script>
 
 </body>
 
