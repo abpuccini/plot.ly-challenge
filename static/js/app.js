@@ -5,19 +5,24 @@ var ids = [];
 var metadata = [];
 var samples = [];
 
-// Append options for users to select based on ids
-d3.json("data/samples.json").then(function (data) {
-    ids = data.names;
-    metadata = data.metadata;
-    samples = data.samples;
-    var selection = d3.select("#selDataset");
-    ids.forEach(element => {
-        var options = selection.append("option");
-        options.property("value", element);
-        options.text(element);
+// Function to call data when the webpage loads
+function init() {
+    // Append options for users to select based on ids
+    d3.json("data/samples.json").then(function (data) {
+        ids = data.names;
+        metadata = data.metadata;
+        samples = data.samples;
+        var selection = d3.select("#selDataset");
+        ids.forEach(element => {
+            var options = selection.append("option");
+            options.property("value", element);
+            options.text(element);
+        });
+        optionChanged(selection.property("value"));
     });
-    optionChanged(selection.property("value"));
-});
+}
+
+init();
 
 // Source: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 // Make all letters to uppercase
@@ -77,6 +82,12 @@ function barPlot(id) {
             r: 100,
             t: 100,
             b: 100
+        },
+        yaxis: {
+            title: "<b>ID</b>"
+        },
+        xaxis: {
+            title: "<b>Number of Samples</b>"
         }
     };
 
@@ -141,7 +152,6 @@ function bubbleChart(id) {
         marker: {
             size: sample_values,
             color: colors,
-            colorscale: 'Earth',
             opacity: otu_ids.map(id => 0.7)
         },
         type: 'scatter',
@@ -154,7 +164,13 @@ function bubbleChart(id) {
     // Apply the group bar mode to the layout
     var layout = {
         title: "<b>OTUs Found in an Individual</b>",
-        showlegend: false
+        showlegend: false,
+        xaxis: {
+            title: "<b>OTU ID</b>"
+        },
+        yaxis: {
+            title: "<b>Number of Samples</b>"
+        }
     };
 
     Plotly.newPlot('bubble', data, layout);
@@ -164,13 +180,14 @@ function bubbleChart(id) {
 function gaugeChart(value) {
     var filteredData = metadata.filter(event => parseInt(event.id) === parseInt(value))[0];
     var wfreq = filteredData.wfreq;
+    var test_id = filteredData.id;
 
     // Source: https://codepen.io/ascotto/pen/eGNaqe?editors=0010
     // Trig to calc meter point
     function gaugePointer(value) {
 
         var degrees = 180 - (value * 20),
-            radius = .5;
+            radius = .6;
         var radians = degrees * Math.PI / 180;
         var x = radius * Math.cos(radians);
         var y = radius * Math.sin(radians);
@@ -182,23 +199,19 @@ function gaugeChart(value) {
             pathY = String(y),
             pathEnd = ' Z';
         var path = mainPath.concat(pathX, space, pathY, pathEnd);
-
         return path;
     }
 
     var data = [
         {
             value: wfreq,
-            gauge: {
-                axis: { range: [null, 9] }
-            },
             type: 'scatter',
             x: [0], y: [0],
-            marker: { size: 18, color: '850000' },
+            marker: { size: 5, color: '850000' },
             showlegend: false,
-            name: 'wfreq',
-            text: wfreq,
-            hoverinfo: 'text+name'
+            name: 'Times',
+            text: test_id,
+            hoverinfo: 'text+value+name'
         },
         {
             values: [50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50],
