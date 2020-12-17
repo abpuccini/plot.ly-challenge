@@ -7,6 +7,7 @@ Visit Belly Button Biodiversity Website >> [Click Here!](https://abpuccini.githu
 To construct an interactive dashboard to explore the Belly Button Biodiversity dataset, which catalogs the microbes that colonize human navels.
 
 Dataset: [Belly Button Biodiversity Dataset](data/samples.json)
+
 Source: [NC State The Public Science Lab](http://robdunnlab.com/projects/belly-button-biodiversity/)
 
 ## Dashboard Blueprint
