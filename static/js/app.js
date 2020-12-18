@@ -181,6 +181,8 @@ function gaugeChart(value) {
     var filteredData = metadata.filter(event => parseInt(event.id) === parseInt(value))[0];
     var wfreq = filteredData.wfreq;
     var test_id = filteredData.id;
+    var text_plot = metadata.map(data => `OTU ${data.id}, ${data.wfreq}Times`);
+    console.log(metadata);
 
     // Source: https://codepen.io/ascotto/pen/eGNaqe?editors=0010
     // Trig to calc meter point
@@ -209,9 +211,9 @@ function gaugeChart(value) {
             x: [0], y: [0],
             marker: { size: 5, color: '850000' },
             showlegend: false,
-            name: 'Times',
-            text: test_id,
-            hoverinfo: 'text+value+name'
+            name: test_id,
+            text: text_plot,
+            hoverinfo: 'text+name'
         },
         {
             values: [50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50],
