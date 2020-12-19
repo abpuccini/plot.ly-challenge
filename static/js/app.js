@@ -83,7 +83,7 @@ function barPlot(id) {
 
     // Apply the group bar mode to the layout
     var layout = {
-        title: `<b>Top 10 OTUs Found in an Individual</b><br>(Subject ID:${id})`,
+        title: `<b>Top 10 OTUs Found in an Individual</b><br>(Test ID:${id})`,
         margin: {
             l: 100,
             r: 100,
@@ -170,7 +170,7 @@ function bubbleChart(id) {
 
     // Apply parameter to the layout
     var layout = {
-        title: `<b>OTUs Found in an Individual</b><br>(Subject ID:${id})`,
+        title: `<b>OTUs Found in an Individual</b><br>(Test ID:${id})`,
         showlegend: false,
         xaxis: {
             title: "<b>OTU ID</b>"
@@ -217,7 +217,7 @@ function gaugeChart(value) {
             x: [0], y: [0],
             marker: { size: 5, color: '850000' },
             showlegend: false,
-            name: ` OTU ${test_id}`,
+            name: `Test-ID ${test_id}`,
             text: `${wfreq} Times`,
             hoverinfo: 'name+text'
         },
