@@ -16,56 +16,45 @@ Script: [Javascript Code](static/js/app.js)
 
 ### Selection and Data Retriever
 
+- Data and visualization will be rendered based on test ID no. 940 when users visit the webpage
+
+<p align='center'>
+    <img src='static/images/01-belly-button.png'/>
+</p>
+
 - Users will select **`Test Subject ID No.`** in order to render all visualizations based on the selected ID to the webpage.
 
-    ```java
-    // Initialize arrays to hold data
-    var ids = [];
-    var metadata = [];
-    var samples = [];
-
-    // Function to call data when the webpage loads
-    function init() {
-        // Append options for users to select based on ids
-        d3.json("data/samples.json").then(function (data) {
-
-            // Retrieve data and store it into variables
-            ids = data.names;
-            metadata = data.metadata;
-            samples = data.samples;
-
-            // Append the options for users to select
-            var selection = d3.select("#selDataset");
-            ids.forEach(element => {
-                var options = selection.append("option");
-                options.property("value", element);
-                options.text(element);
-            });
-
-            // Call the visualization when the webpage first loads
-            optionChanged(selection.property("value"));
-        });
-    }
-
-    // Call init() function to render the page
-    init();
-    ```
+<p align='center'>
+    <img src='static/images/02-belly-button.png'/>
+</p>
 
 ### Bar Chart
 
+The visualization reveals the top 10 operational taxonomic units (OTUs) in an individual test subject.
 
+<p align='center'>
+    <img src='static/images/05-belly-button.png'/>
+</p>
 
 ### Gauge Chart
 
+The visualization reveals the washing frequency per week for an individual test subject.
 
+<p align='center'>
+    <img src='static/images/03-belly-button.png'/>
+</p>
 
 ### Bubble Chart
 
+The visualization reveals the all operational taxonomic units (OTUs) in an individual test subject.
 
+<p align='center'>
+    <img src='static/images/04-belly-button.png'/>
+</p>
 
 ### Research Context
 
-
+Overview of Belly Botton Biodiversity and what the research team found during the study.
 
 ## References
 
