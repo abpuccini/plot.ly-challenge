@@ -10,9 +10,13 @@ Dataset: [Belly Button Biodiversity Dataset](data/samples.json)
 
 Source: [NC State The Public Science Lab](http://robdunnlab.com/projects/belly-button-biodiversity/)
 
+Script: [Javascript Code](static/js/app.js)
+
 ## Dashboard Blueprint
 
 ### Selection and Data Retriever
+
+- Users will select **`Test Subject ID No.`** in order to render all visualizations based on the selected ID to the webpage.
 
     ```java
     // Initialize arrays to hold data
