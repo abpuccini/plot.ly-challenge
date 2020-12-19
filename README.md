@@ -41,7 +41,7 @@ The visualization reveals the top 10 operational taxonomic units (OTUs) in an in
 The visualization reveals the washing frequency per week for an individual test subject.
 
 <p align='center'>
-    <img src='static/images/03-belly-button.png'/>
+    <img src='static/images/03-belly-button.png' width="400px"/>
 </p>
 
 ### Bubble Chart
