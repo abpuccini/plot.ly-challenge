@@ -98,7 +98,7 @@ function barPlot(id) {
         }
     };
 
-    // Render the plot to the div tag with id "plot"
+    // Render the plot to the div tag with id "bar"
     Plotly.newPlot("bar", data, layout);
 };
 
@@ -168,7 +168,7 @@ function bubbleChart(id) {
     // data
     var data = [trace];
 
-    // Apply the group bar mode to the layout
+    // Apply parameter to the layout
     var layout = {
         title: `<b>OTUs Found in an Individual</b><br>(Subject ID:${id})`,
         showlegend: false,
@@ -179,7 +179,7 @@ function bubbleChart(id) {
             title: "<b>Number of Samples</b>"
         }
     };
-
+    // Render the plot to the div tag with id "bubble"
     Plotly.newPlot('bubble', data, layout);
 }
 
@@ -199,7 +199,7 @@ function gaugeChart(value) {
         var x = radius * Math.cos(radians);
         var y = radius * Math.sin(radians);
 
-        // Path: may have to change to create a better triangle
+        // Path:
         var mainPath = 'M -.0 -0.035 L .0 0.035 L ',
             pathX = String(x),
             space = ' ',
@@ -210,6 +210,7 @@ function gaugeChart(value) {
     }
 
     var data = [
+        // Point at the bottom of the needle
         {
             value: wfreq,
             type: 'scatter',
@@ -220,6 +221,7 @@ function gaugeChart(value) {
             text: `${wfreq} Times`,
             hoverinfo: 'name+text'
         },
+        // Gauge chart
         {
             values: [50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50],
             rotation: 90,
@@ -242,7 +244,9 @@ function gaugeChart(value) {
             showlegend: false
         }];
 
+    // Apply parameter to the layout
     var layout = {
+        // Needle
         shapes: [{
             type: 'path',
             path: gaugePointer(wfreq),
@@ -251,6 +255,7 @@ function gaugeChart(value) {
                 color: '850000'
             }
         }],
+        // Visualization
         margin: { t: 100, b: 0 },
         title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week" },
         autosize: true,
@@ -263,7 +268,7 @@ function gaugeChart(value) {
             showgrid: false, range: [-1, 1]
         }
     };
-
+    // Render the plot to the div tag with id "gauge"
     Plotly.newPlot('gauge', data, layout);
 };
 
