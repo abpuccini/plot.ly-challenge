@@ -9,19 +9,26 @@ var samples = [];
 function init() {
     // Append options for users to select based on ids
     d3.json("data/samples.json").then(function (data) {
+
+        // Retrieve data and store it into variables
         ids = data.names;
         metadata = data.metadata;
         samples = data.samples;
+
+        // Append the options for users to select
         var selection = d3.select("#selDataset");
         ids.forEach(element => {
             var options = selection.append("option");
             options.property("value", element);
             options.text(element);
         });
+
+        // Call the visualization when the webpage first loads
         optionChanged(selection.property("value"));
     });
 }
 
+// Call init() function to render the page
 init();
 
 // Source: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript

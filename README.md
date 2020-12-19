@@ -12,9 +12,40 @@ Source: [NC State The Public Science Lab](http://robdunnlab.com/projects/belly-b
 
 ## Dashboard Blueprint
 
-### Selection
+### Selection and Data Retriever
 
+    ```java
+    // Initialize arrays to hold data
+    var ids = [];
+    var metadata = [];
+    var samples = [];
 
+    // Function to call data when the webpage loads
+    function init() {
+        // Append options for users to select based on ids
+        d3.json("data/samples.json").then(function (data) {
+
+            // Retrieve data and store it into variables
+            ids = data.names;
+            metadata = data.metadata;
+            samples = data.samples;
+
+            // Append the options for users to select
+            var selection = d3.select("#selDataset");
+            ids.forEach(element => {
+                var options = selection.append("option");
+                options.property("value", element);
+                options.text(element);
+            });
+
+            // Call the visualization when the webpage first loads
+            optionChanged(selection.property("value"));
+        });
+    }
+
+    // Call init() function to render the page
+    init();
+    ```
 
 ### Bar Chart
 
