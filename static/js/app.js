@@ -83,7 +83,7 @@ function barPlot(id) {
 
     // Apply the group bar mode to the layout
     var layout = {
-        title: "<b>Top 10 OTUs Found in an Individual</b>",
+        title: `<b>Top 10 OTUs Found in an Individual</b><br>(Subject ID:${id})`,
         margin: {
             l: 100,
             r: 100,
@@ -170,7 +170,7 @@ function bubbleChart(id) {
 
     // Apply the group bar mode to the layout
     var layout = {
-        title: "<b>OTUs Found in an Individual</b>",
+        title: `<b>OTUs Found in an Individual</b><br>(Subject ID:${id})`,
         showlegend: false,
         xaxis: {
             title: "<b>OTU ID</b>"
